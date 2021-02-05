@@ -9,6 +9,7 @@ import Foundation
 
 protocol QuizBusinessLogic {
     func getNextQuestion()
+    func rightAnswer()
 }
 
 protocol QuizDataStore {
@@ -19,6 +20,7 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     var worker: QuizAPIWorker?
     var questionsList: [Question]?
     var currentQuestionIndex: Int = 0
+    var score = 0
     
     
     init(worker: QuizAPIWorker? = nil) {
@@ -31,7 +33,7 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     }
     
     private func loadQuestions() {
-        worker?.fetchQuestions(quantity: 10, completionHandler: {
+        worker?.fetchQuestions(quantity: 3, completionHandler: {
             self.questionsList = $0
             let response = self.generateResponseFromQuestion()
             self.presenter?.didLoadQuestions(response: response!)
@@ -44,7 +46,11 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     
     func getNextQuestion() {
         let response = generateResponseFromQuestion()
-        presenter?.didLoadQuestions(response: response!)
+        if response == nil {
+            presenter?.quizEnded(score: score)
+        } else {
+            presenter?.didLoadQuestions(response: response!)
+        }
     }
     
     func generateResponseFromQuestion() -> Quiz.Response? {
@@ -52,10 +58,15 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
         if list.indices.contains(currentQuestionIndex) {
             let question = list[currentQuestionIndex]
             let response = Quiz.Response(question: question)
+            currentQuestionIndex += 1
             return response
         }
         
         return nil
+    }
+    
+    func rightAnswer() {
+        score += 1
     }
     
     private func getValueFromIndex(index: Int) -> Question? {

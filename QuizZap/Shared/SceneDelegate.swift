@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
 
-        let vc = QuizViewController()
+        let vc = QuizViewController(shouldSetupScene: true)
         let rootController = UINavigationController(rootViewController: vc)
 
         window?.rootViewController = rootController

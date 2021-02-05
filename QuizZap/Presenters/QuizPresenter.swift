@@ -9,6 +9,7 @@ import UIKit
 
 protocol QuizPresentationLogic {
     func didLoadQuestions(response: Quiz.Response)
+    func quizEnded(score: Int)
 }
 
 class QuizPresenter: QuizPresentationLogic {
@@ -20,6 +21,10 @@ class QuizPresenter: QuizPresentationLogic {
         self.currentRawQuestion = response
         guard let converter = responseToViewModel(response: currentRawQuestion) else { return }
         displayDelegate?.displayQuestionAndAnswers(viewModel: converter)
+    }
+    
+    func quizEnded(score: Int) {
+        displayDelegate?.displayScore(score: score)
     }
     
     private func responseToViewModel(response: Quiz.Response?) -> Quiz.ViewModel? {

@@ -8,7 +8,8 @@
 import UIKit
 
 protocol QuizDisplayLogic: AnyObject {
-     func displayQuestionAndAnswers(viewModel: Quiz.ViewModel)
+    func displayQuestionAndAnswers(viewModel: Quiz.ViewModel)
+    func displayScore(score: Int)
 }
 
 class QuizViewController: UIViewController, QuizDisplayLogic {
@@ -57,6 +58,7 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         super.viewDidLoad()
         alternativesTableView.delegate = self
         alternativesTableView.dataSource = self
+        loadingAlert()
     }
     
     // MARK: Display logic
@@ -73,11 +75,30 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         interactor?.getNextQuestion()
     }
     
+    func displayScore(score: Int) {
+        alternativesTableView.isHidden = true
+        questionHeader.textAlignment = .center
+        questionHeader.text = "End of quiz! You got \(score) out of 10."
+    }
+    
     private func reloadContent() {
         DispatchQueue.main.async {
             self.questionHeader.text = self.viewModel?.questionText.htmlAttributedString?.string
             self.alternativesTableView.reloadData()
+            self.dismiss(animated: false, completion: nil)
         }
+    }
+    
+    private func loadingAlert() {
+        let alert = UIAlertController(title: nil, message: "Loading questions...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -85,13 +106,33 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
 
 extension QuizViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.answersList.count ?? 0
+        tableView.allowsSelection = true
+        return viewModel?.answersList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = viewModel?.answersList[indexPath.row].htmlAttributedString?.string
+        let text = viewModel?.answersList[indexPath.row].htmlAttributedString?.string
+        
+        if text!.isEmpty {
+            tableView.isHidden = true
+        } else {
+            cell.textLabel?.text = viewModel?.answersList[indexPath.row].htmlAttributedString?.string
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel?.correctAnswerIndex {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .green
+            interactor?.rightAnswer()
+        } else {
+            tableView.cellForRow(at: indexPath)?.backgroundColor = .red
+        }
+        tableView.allowsSelection = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.getQuestion()
+        }
     }
 }
 

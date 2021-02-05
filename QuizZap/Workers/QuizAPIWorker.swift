@@ -48,7 +48,9 @@ class QuizAPIWorker {
     private func buildQuestionsQuery(quantity: Int) -> URL? {
         var url = URLComponents(string: apiURL)!
         url.queryItems = [ URLQueryItem(name: "amount",
-                                        value: String(quantity))
+                                        value: String(quantity)),
+                           URLQueryItem(name: "difficulty",
+                                        value: "easy")
         ]
         
         guard let builtURL = url.url else { return nil }
