@@ -39,6 +39,11 @@ class QuizInteractorTests: XCTestCase {
     // MARK: Test doubles
 
     class QuizPresentationLogicSpy: QuizPresentationLogic {
+        // TODO: Test
+        func quizEnded(score: Int) {
+            
+        }
+        
         var loadQuestionsCalled = false
 
         func didLoadQuestions(response: Quiz.Response) {
@@ -57,7 +62,7 @@ class QuizInteractorTests: XCTestCase {
 
         // When
         sleep(3)
-        let question = sut.getNextQuestion()
+        let question = sut.getQuestionAtIndex(request: request)
     
         // Then
         XCTAssertNotNil(question)

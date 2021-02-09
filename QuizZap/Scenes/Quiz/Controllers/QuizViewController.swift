@@ -47,11 +47,18 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
             nextQuestionButton.layer.shadowRadius = 12
             nextQuestionButton.layer.shadowOpacity = 0.5
             nextQuestionButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+            nextQuestionButton.isEnabled = false
         }
     }
     @IBOutlet weak var currentQuestionNumber: UILabel! {
         didSet {
             currentQuestionNumber.textColor = .yellowTitle
+        }
+    }
+    
+    var currentSelectedIndex: Int? {
+        didSet {
+            nextQuestionButton.isEnabled = true
         }
     }
     
@@ -88,6 +95,7 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         alternativesTableView.dataSource = self
         loadingAlert()
         alternativesTableView.register(QuestionCell.self, forCellReuseIdentifier: "cell")
+        nextQuestionButton.addTarget(self, action: #selector(didPressNextQuestionButton), for: .touchUpInside)
     }
     
     // MARK: Display logic
@@ -118,6 +126,7 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
             self.currentQuestionNumber.text = "Questão \(self.viewModel?.number ?? 1)"
             self.alternativesTableView.reloadData()
             self.dismiss(animated: false, completion: nil)
+            self.nextQuestionButton.isEnabled = false
         }
     }
     
@@ -145,7 +154,28 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
     }
     
     @objc func didPressNextQuestionButton() {
-    
+        
+        guard let currentSelectedIndex = currentSelectedIndex else {
+            
+            return
+        }
+        
+        let selectedAnswer = IndexPath(row: currentSelectedIndex, section: 0)
+        let cell = alternativesTableView.cellForRow(at: selectedAnswer) as? QuestionCell
+        
+        if selectedAnswer.row == viewModel?.correctAnswerIndex {
+            interactor?.rightAnswer()
+            cell?.styleRightAnswer()
+        } else {
+            cell?.styleWrongAnswer()
+            let indexPath = IndexPath(row: viewModel?.correctAnswerIndex ?? 0, section: 0)
+            let rightCell = alternativesTableView.cellForRow(at: indexPath) as? QuestionCell
+            rightCell?.showAsRightAnswer()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.interactor?.getNextQuestion()
+        }
     }
 }
 
@@ -171,12 +201,13 @@ extension QuizViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? QuestionCell
-        cell?.styleRightAnswer()
+        currentSelectedIndex = indexPath.row
+        cell?.styleSelected()
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? QuestionCell
-        cell?.styleSelected()
+        cell?.styleDeselect()
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

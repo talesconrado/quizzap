@@ -80,6 +80,7 @@ class QuestionCell: UITableViewCell {
     
     func styleWrongAnswer() {
         contentView.backgroundColor = .wrongBG
+        print("errou")
     }
     
     func showAsRightAnswer() {

@@ -42,6 +42,11 @@ class QuizPresenterTests: XCTestCase
     // MARK: Test doubles
     
     class QuizDisplayLogicSpy: QuizDisplayLogic {
+        // TODO: Test
+        func displayScore(score: Int) {
+            
+        }
+        
         var setupViewCalled = false
     
         func displayQuestionAndAnswers(viewModel: Quiz.ViewModel) {
@@ -64,7 +69,7 @@ class QuizPresenterTests: XCTestCase
                                 correctAnswer: "A",
                                 incorrectAnswers: ["B", "C"])
         
-        let response = Quiz.Response(question: question)
+        let response = Quiz.Response(question: question, index: 0)
     
         // When
         sut.didLoadQuestions(response: response)

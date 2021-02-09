@@ -50,6 +50,11 @@ class QuizViewControllerTests: XCTestCase
     // MARK: Test doubles
     
     class QuizBusinessLogicSpy: QuizBusinessLogic {
+        // TODO: Test
+        func rightAnswer() {
+            
+        }
+        
         var getNextQuestionCalled = false
 
         func getNextQuestion() {
@@ -66,7 +71,8 @@ class QuizViewControllerTests: XCTestCase
                                        questionText: "Q1",
                                        category: "Science",
                                        type: .multiple,
-                                       difficulty: .easy)
+                                       difficulty: .easy,
+                                       number: 0)
         
         // When
         loadView()
@@ -83,14 +89,15 @@ class QuizViewControllerTests: XCTestCase
                                        questionText: "Q1",
                                        category: "Science",
                                        type: .multiple,
-                                       difficulty: .easy)
+                                       difficulty: .easy,
+                                       number: 0)
         
         sut.displayQuestionAndAnswers(viewModel: viewModel)
         loadView()
 
-        sleep(1)
-        
-        XCTAssertEqual("A", sut.alternativesTableView.cellForRow(at: IndexPath(row: 0, section: 0))?.textLabel?.text)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            XCTAssertEqual("A", self.sut.alternativesTableView.cellForRow(at: IndexPath(row: 0, section: 0))?.textLabel?.text)
+        }
     }
     
     func testSetupScene() {
