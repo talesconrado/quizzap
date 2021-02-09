@@ -14,6 +14,7 @@ enum Quiz {
 
     struct Response {
         let question: Question
+        let index: Int
     }
 
     struct ViewModel {
@@ -23,5 +24,6 @@ enum Quiz {
         let category: String
         let type: TypeEnum
         let difficulty: Difficulty
+        let number: Int
     }
 }

@@ -42,7 +42,8 @@ class QuizPresenter: QuizPresentationLogic {
                                        questionText: response.question.question,
                                        category: response.question.category,
                                        type: response.question.type,
-                                       difficulty: response.question.difficulty)
+                                       difficulty: response.question.difficulty,
+                                       number: response.index)
         
         return viewModel
     }

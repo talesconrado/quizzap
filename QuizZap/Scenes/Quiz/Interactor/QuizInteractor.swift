@@ -57,7 +57,7 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
         guard let list = questionsList else { return nil }
         if list.indices.contains(currentQuestionIndex) {
             let question = list[currentQuestionIndex]
-            let response = Quiz.Response(question: question)
+            let response = Quiz.Response(question: question, index: currentQuestionIndex+1)
             currentQuestionIndex += 1
             return response
         }
