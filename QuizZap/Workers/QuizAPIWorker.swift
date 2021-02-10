@@ -21,9 +21,9 @@ class QuizAPIWorker {
     
     let apiURL = "https://opentdb.com/api.php"
     
-    func fetchQuestions(quantity: Int, completionHandler: @escaping ([Question]) -> Void) {
+    func fetchQuestions(quantity: Int, difficulty: Difficulty, completionHandler: @escaping ([Question]) -> Void) {
         
-        guard let builtURL = buildQuestionsQuery(quantity: quantity) else { return }
+        guard let builtURL = buildQuestionsQuery(quantity: quantity, difficulty: difficulty) else { return }
         
         let task = URLSession.shared.dataTask(with: builtURL, completionHandler: { (data, response, error) in
             if let error = error {
@@ -45,7 +45,7 @@ class QuizAPIWorker {
         task.resume()
     }
     
-    private func buildQuestionsQuery(quantity: Int) -> URL? {
+    private func buildQuestionsQuery(quantity: Int, difficulty: Difficulty) -> URL? {
         var url = URLComponents(string: apiURL)!
         url.queryItems = [ URLQueryItem(name: "amount",
                                         value: String(quantity)),

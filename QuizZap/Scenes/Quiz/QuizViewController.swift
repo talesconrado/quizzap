@@ -93,7 +93,9 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         super.viewDidLoad()
         alternativesTableView.delegate = self
         alternativesTableView.dataSource = self
-        loadingAlert()
+        loadingAlert {
+            self.interactor?.loadQuestions()
+        }
         alternativesTableView.register(QuestionCell.self, forCellReuseIdentifier: "cell")
         nextQuestionButton.addTarget(self, action: #selector(didPressNextQuestionButton), for: .touchUpInside)
     }
@@ -130,7 +132,7 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         }
     }
     
-    private func loadingAlert() {
+    private func loadingAlert(completion: @escaping (() -> Void)) {
         questionHeader.isHidden = true
         questionBackground.isHidden = true
         currentQuestionNumber.isHidden = true
@@ -142,7 +144,7 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         loadingIndicator.startAnimating();
 
         alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: completion)
     }
     
     private func endLoading() {

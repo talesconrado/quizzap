@@ -10,9 +10,12 @@ import Foundation
 protocol QuizBusinessLogic {
     func getNextQuestion()
     func rightAnswer()
+    func loadQuestions()
 }
 
 protocol QuizDataStore {
+    var difficultyLevel: Difficulty? { get set }
+    var numberOfQuestions: Int? { get set }
 }
 
 class QuizInteractor: QuizBusinessLogic, QuizDataStore {
@@ -21,7 +24,8 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     var questionsList: [Question]?
     var currentQuestionIndex: Int = 0
     var score = 0
-    
+    var difficultyLevel: Difficulty?
+    var numberOfQuestions: Int?
     
     init(worker: QuizAPIWorker? = nil) {
         if let worker = worker {
@@ -29,11 +33,12 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
         } else {
             self.worker = QuizAPIWorker()
         }
-        loadQuestions()
     }
     
-    private func loadQuestions() {
-        worker?.fetchQuestions(quantity: 3, completionHandler: {
+    func loadQuestions() {
+        worker?.fetchQuestions(quantity: numberOfQuestions!,
+                               difficulty: difficultyLevel!,
+                               completionHandler: {
             self.questionsList = $0
             let response = self.generateResponseFromQuestion()
             self.presenter?.didLoadQuestions(response: response!)

@@ -18,8 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
 
-        let vc = QuizViewController(shouldSetupScene: true)
-        //let vc = StartViewController()
+        let vc = StartViewController()
         let rootController = UINavigationController(rootViewController: vc)
         rootController.navigationBar.isHidden = true
 
