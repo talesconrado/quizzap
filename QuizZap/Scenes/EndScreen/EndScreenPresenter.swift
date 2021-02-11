@@ -8,8 +8,13 @@
 import UIKit
 
 protocol EndScreenPresentationLogic {
+    func sendScores(viewModel: EndScreen.ViewModel)
 }
 
 class EndScreenPresenter: EndScreenPresentationLogic {
     weak var displayDelegate: EndScreenDisplayLogic?
+    
+    func sendScores(viewModel: EndScreen.ViewModel) {
+        displayDelegate?.displayScores(viewModel: viewModel)
+    }
 }

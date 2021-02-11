@@ -42,6 +42,10 @@ class QuizPresenterTests: XCTestCase
     // MARK: Test doubles
     
     class QuizDisplayLogicSpy: QuizDisplayLogic {
+        func displayScore(score: Int, total: Int) {
+            
+        }
+        
         // TODO: Test
         func displayScore(score: Int) {
             

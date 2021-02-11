@@ -9,7 +9,7 @@ import UIKit
 
 protocol QuizDisplayLogic: AnyObject {
     func displayQuestionAndAnswers(viewModel: Quiz.ViewModel)
-    func displayScore(score: Int)
+    func displayScore(score: Int, total: Int)
 }
 
 class QuizViewController: UIViewController, QuizDisplayLogic {
@@ -116,10 +116,8 @@ class QuizViewController: UIViewController, QuizDisplayLogic {
         interactor?.getNextQuestion()
     }
     
-    func displayScore(score: Int) {
-        alternativesTableView.isHidden = true
-        questionHeader.textAlignment = .center
-        questionHeader.text = "End of quiz! You got \(score) out of 10."
+    func displayScore(score: Int, total: Int) {
+        router?.routeToScoresScreen()
     }
     
     private func reloadContent() {

@@ -50,6 +50,10 @@ class QuizViewControllerTests: XCTestCase
     // MARK: Test doubles
     
     class QuizBusinessLogicSpy: QuizBusinessLogic {
+        func loadQuestions() {
+            
+        }
+        
         // TODO: Test
         func rightAnswer() {
             

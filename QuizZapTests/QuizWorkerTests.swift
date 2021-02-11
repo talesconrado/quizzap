@@ -46,7 +46,7 @@ class QuizWorkerTests: XCTestCase {
     let requestExpectation = expectation(description: "Request should return questions")
     
     // When
-    sut.fetchQuestions(quantity: quantity, completionHandler: {
+    sut.fetchQuestions(quantity: quantity, difficulty: .easy, completionHandler: {
                         questionsArray = $0
         XCTAssertEqual(quantity, questionsArray.count)
         print(questionsArray)

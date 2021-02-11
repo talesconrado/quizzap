@@ -42,6 +42,7 @@
 		E9F1E3D425D41378004E0684 /* EndScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CE25D41378004E0684 /* EndScreenModels.swift */; };
 		E9F1E3D525D41378004E0684 /* EndScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */; };
 		E9F1E3D625D41378004E0684 /* EndScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3D025D41378004E0684 /* EndScreenInteractor.swift */; };
+		E9F1E3DB25D41A48004E0684 /* EndScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F1E3DA25D41A48004E0684 /* EndScreenViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		E9F1E3CE25D41378004E0684 /* EndScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenModels.swift; sourceTree = "<group>"; };
 		E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenViewController.swift; sourceTree = "<group>"; };
 		E9F1E3D025D41378004E0684 /* EndScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenInteractor.swift; sourceTree = "<group>"; };
+		E9F1E3DA25D41A48004E0684 /* EndScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndScreenViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,8 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				E9F1E3CA25D41352004E0684 /* EndScreen */,
-				E98E978425D1761A00FD6B78 /* StartScreen */,
 				E98E977D25D175A400FD6B78 /* Quiz */,
+				E98E978425D1761A00FD6B78 /* StartScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -259,8 +261,9 @@
 				E9F1E3CC25D41378004E0684 /* EndScreenWorker.swift */,
 				E9F1E3CD25D41378004E0684 /* EndScreenRouter.swift */,
 				E9F1E3CE25D41378004E0684 /* EndScreenModels.swift */,
-				E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */,
 				E9F1E3D025D41378004E0684 /* EndScreenInteractor.swift */,
+				E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */,
+				E9F1E3DA25D41A48004E0684 /* EndScreenViewController.xib */,
 			);
 			path = EndScreen;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F1E3DB25D41A48004E0684 /* EndScreenViewController.xib in Resources */,
 				E923938F25C988D1006931B9 /* LaunchScreen.storyboard in Resources */,
 				E98E979525D176AA00FD6B78 /* StartViewController.xib in Resources */,
 				E923938C25C988D1006931B9 /* Assets.xcassets in Resources */,
@@ -595,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BABNQ3LD22;
 				INFOPLIST_FILE = QuizZap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -614,6 +619,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BABNQ3LD22;
 				INFOPLIST_FILE = QuizZap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

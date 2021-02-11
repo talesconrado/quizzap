@@ -8,14 +8,17 @@
 import UIKit
 
 enum EndScreen {
-    enum Something {
-        struct Request {
-        }
+    struct Request {
+    }
 
-        struct Response {
-        }
+    struct Response {
+    }
 
-        struct ViewModel {
-        }
-  }
+    struct ViewModel {
+        let highestScore: Double?
+        let highestScoreTotal: Double?
+        let hitRate: Double
+        let currentScore: Int
+        let currentTotal: Int
+    }
 }

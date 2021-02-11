@@ -16,6 +16,7 @@ protocol QuizBusinessLogic {
 protocol QuizDataStore {
     var difficultyLevel: Difficulty? { get set }
     var numberOfQuestions: Int? { get set }
+    var score: Int { get set }
 }
 
 class QuizInteractor: QuizBusinessLogic, QuizDataStore {
@@ -23,7 +24,7 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     var worker: QuizAPIWorker?
     var questionsList: [Question]?
     var currentQuestionIndex: Int = 0
-    var score = 0
+    var score: Int = 0
     var difficultyLevel: Difficulty?
     var numberOfQuestions: Int?
     
@@ -36,7 +37,8 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     }
     
     func loadQuestions() {
-        worker?.fetchQuestions(quantity: numberOfQuestions!,
+        if numberOfQuestions == nil { numberOfQuestions = 10 }
+        worker?.fetchQuestions(quantity: numberOfQuestions ?? 10,
                                difficulty: difficultyLevel!,
                                completionHandler: {
             self.questionsList = $0
@@ -52,7 +54,7 @@ class QuizInteractor: QuizBusinessLogic, QuizDataStore {
     func getNextQuestion() {
         let response = generateResponseFromQuestion()
         if response == nil {
-            presenter?.quizEnded(score: score)
+            presenter?.quizEnded(score: score, total: numberOfQuestions ?? 10)
         } else {
             presenter?.didLoadQuestions(response: response!)
         }
