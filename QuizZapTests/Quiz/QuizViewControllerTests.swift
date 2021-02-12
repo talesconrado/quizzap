@@ -130,10 +130,9 @@ class QuizViewControllerTests: XCTestCase
         loadView()
         _ = sut.view
         
-        let cell = sut.alternativesTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? QuestionCell
-        
-        cell?.styleWrongAnswer()
-        cell?.styleRightAnswer()
+        let cell = QuestionCell()
+        cell.styleRightAnswer()
+        cell.styleWrongAnswer()
         
         sut.selectedNewAnswer(index: 0)
         
