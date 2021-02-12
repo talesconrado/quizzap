@@ -39,26 +39,52 @@ class QuizInteractorTests: XCTestCase {
     // MARK: Test doubles
 
     class QuizPresentationLogicSpy: QuizPresentationLogic {
-        func quizEnded(score: Int, total: Int) {
-            
-        }
-        
-        // TODO: Test
-        func quizEnded(score: Int) {
-            
-        }
         
         var loadQuestionsCalled = false
+        var quizEndedCalled = false
 
+        func quizEnded(score: Int, total: Int) {
+            quizEndedCalled = true
+        }
+        
         func didLoadQuestions(response: Quiz.Response) {
-            
+            loadQuestionsCalled = true
         }
         
     }
 
     // MARK: Tests
 
-    func testGetFirstQuestion() {
-
+    func testQuizEndedCalled() {
+        let spy = QuizPresentationLogicSpy()
+        sut.presenter = spy
+        
+        sut.getNextQuestion()
+        
+        XCTAssertTrue(spy.quizEndedCalled)
+    }
+    
+    func testLoadQuestionsAndTheNextOne() {
+        // Given
+        sut.difficultyLevel = .easy
+        sut.numberOfQuestions = 10
+        
+        let spy = QuizPresentationLogicSpy()
+        sut.presenter = spy
+        
+        // When
+        sut.loadQuestions()
+        
+        let fulfilling = expectation(description: "load")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.sut.getNextQuestion()
+            fulfilling.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNotNil(self.sut.questionsList)
+        XCTAssertTrue(spy.loadQuestionsCalled)
     }
 }

@@ -20,9 +20,7 @@ protocol StartDataStore {
 class StartInteractor: StartBusinessLogic, StartDataStore {
     var difficultyLevel: Difficulty?
     var numberOfQuestions: Int?
-    
-    var presenter: StartPresentationLogic?
-    
+        
     func didSelectDifficulty(_ difficulty: Difficulty) {
         difficultyLevel = difficulty
     }

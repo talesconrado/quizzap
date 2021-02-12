@@ -201,7 +201,7 @@ extension QuizViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? QuestionCell
-        currentSelectedIndex = indexPath.row
+        selectedNewAnswer(index: indexPath.row)
         cell?.styleSelected()
     }
     
@@ -216,6 +216,10 @@ extension QuizViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         70
+    }
+    
+    func selectedNewAnswer(index: Int) {
+        currentSelectedIndex = index
     }
 
 }

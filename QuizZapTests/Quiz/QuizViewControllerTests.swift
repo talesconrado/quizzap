@@ -114,8 +114,29 @@ class QuizViewControllerTests: XCTestCase
     func testCalledGetNextQuestion() {
         let spy = QuizBusinessLogicSpy()
         sut.interactor = spy
-        sut.getQuestion()
         
-        XCTAssertTrue(spy.getNextQuestionCalled)
+        _ = sut.view
+        
+        sut.currentSelectedIndex = 0
+        sut.didPressNextQuestionButton()
+            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            XCTAssertTrue(spy.getNextQuestionCalled)
+        }
+    }
+    
+    func testSelectedAnswer() {
+        
+        loadView()
+        _ = sut.view
+        
+        let cell = sut.alternativesTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? QuestionCell
+        
+        cell?.styleWrongAnswer()
+        cell?.styleRightAnswer()
+        
+        sut.selectedNewAnswer(index: 0)
+        
+        XCTAssertEqual(0, sut.currentSelectedIndex)
     }
 }

@@ -107,12 +107,9 @@ class StartViewController: UIViewController, StartDisplayLogic {
     private func setupScene() {
         let viewController = self
         let interactor = StartInteractor()
-        let presenter = StartPresenter()
         let router = StartRouter()
         viewController.interactor = interactor
         viewController.router = router
-        interactor.presenter = presenter
-        presenter.displayDelegate = viewController
         router.viewController = viewController
         router.dataStore = interactor
     }
@@ -152,7 +149,7 @@ class StartViewController: UIViewController, StartDisplayLogic {
         view.endEditing(false)
     }
     
-    private func checkQuestionsNumber() -> Bool {
+    func checkQuestionsNumber() -> Bool {
         if let stringValue = questionsTextField.value(forKey: "text") as? String,
            let intValue = Int(stringValue),
            intValue < 10 || intValue > 20 {

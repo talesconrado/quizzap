@@ -25,20 +25,23 @@
 		E92393E525CACCA3006931B9 /* QuizWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92393E125CACCA3006931B9 /* QuizWorkerTests.swift */; };
 		E92393E625CACCA3006931B9 /* QuizPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92393E225CACCA3006931B9 /* QuizPresenterTests.swift */; };
 		E92393F925CAD8FC006931B9 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92393F825CAD8FC006931B9 /* QuestionModel.swift */; };
+		E95FEE0425D6A26B00A1BDD3 /* EndScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FEE0025D6A26B00A1BDD3 /* EndScreenViewControllerTests.swift */; };
+		E95FEE0525D6A26B00A1BDD3 /* EndScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FEE0125D6A26B00A1BDD3 /* EndScreenInteractorTests.swift */; };
+		E95FEE0725D6A26B00A1BDD3 /* EndScreenPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FEE0325D6A26B00A1BDD3 /* EndScreenPresenterTests.swift */; };
+		E95FEE1425D6A29700A1BDD3 /* StartViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FEE1025D6A29700A1BDD3 /* StartViewControllerTests.swift */; };
+		E95FEE1525D6A29700A1BDD3 /* StartInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FEE1125D6A29700A1BDD3 /* StartInteractorTests.swift */; };
 		E978861625CC226C00D30722 /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E978861525CC226C00D30722 /* QuizViewController.xib */; };
 		E98BB0BF25CD7C73005D4F8E /* QuizCoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98BB0BE25CD7C73005D4F8E /* QuizCoreDataWorker.swift */; };
 		E98D184425D2BCA7007DC2BB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D184325D2BCA7007DC2BB /* StringExtension.swift */; };
 		E98D184A25D2C32A007DC2BB /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D184925D2C32A007DC2BB /* QuestionCell.swift */; };
 		E98E977825D173E400FD6B78 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E977725D173E400FD6B78 /* UIColorExtension.swift */; };
-		E98E978B25D1763100FD6B78 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E978525D1763100FD6B78 /* StartPresenter.swift */; };
 		E98E978D25D1763100FD6B78 /* StartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E978725D1763100FD6B78 /* StartRouter.swift */; };
 		E98E978E25D1763100FD6B78 /* StartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E978825D1763100FD6B78 /* StartModels.swift */; };
 		E98E978F25D1763100FD6B78 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E978925D1763100FD6B78 /* StartViewController.swift */; };
 		E98E979025D1763100FD6B78 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E978A25D1763100FD6B78 /* StartInteractor.swift */; };
 		E98E979525D176AA00FD6B78 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98E979425D176AA00FD6B78 /* StartViewController.xib */; };
+		E9C2D9FF25D6BC8A00FB503D /* EndScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C2D9FE25D6BC8A00FB503D /* EndScreenRouter.swift */; };
 		E9F1E3D125D41378004E0684 /* EndScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CB25D41378004E0684 /* EndScreenPresenter.swift */; };
-		E9F1E3D225D41378004E0684 /* EndScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CC25D41378004E0684 /* EndScreenWorker.swift */; };
-		E9F1E3D325D41378004E0684 /* EndScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CD25D41378004E0684 /* EndScreenRouter.swift */; };
 		E9F1E3D425D41378004E0684 /* EndScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CE25D41378004E0684 /* EndScreenModels.swift */; };
 		E9F1E3D525D41378004E0684 /* EndScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */; };
 		E9F1E3D625D41378004E0684 /* EndScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E3D025D41378004E0684 /* EndScreenInteractor.swift */; };
@@ -87,20 +90,23 @@
 		E92393E125CACCA3006931B9 /* QuizWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWorkerTests.swift; sourceTree = "<group>"; };
 		E92393E225CACCA3006931B9 /* QuizPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPresenterTests.swift; sourceTree = "<group>"; };
 		E92393F825CAD8FC006931B9 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
+		E95FEE0025D6A26B00A1BDD3 /* EndScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenViewControllerTests.swift; sourceTree = "<group>"; };
+		E95FEE0125D6A26B00A1BDD3 /* EndScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenInteractorTests.swift; sourceTree = "<group>"; };
+		E95FEE0325D6A26B00A1BDD3 /* EndScreenPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenPresenterTests.swift; sourceTree = "<group>"; };
+		E95FEE1025D6A29700A1BDD3 /* StartViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewControllerTests.swift; sourceTree = "<group>"; };
+		E95FEE1125D6A29700A1BDD3 /* StartInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInteractorTests.swift; sourceTree = "<group>"; };
 		E978861525CC226C00D30722 /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
 		E98BB0BE25CD7C73005D4F8E /* QuizCoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCoreDataWorker.swift; sourceTree = "<group>"; };
 		E98D184325D2BCA7007DC2BB /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E98D184925D2C32A007DC2BB /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		E98E977725D173E400FD6B78 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		E98E978525D1763100FD6B78 /* StartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		E98E978725D1763100FD6B78 /* StartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRouter.swift; sourceTree = "<group>"; };
 		E98E978825D1763100FD6B78 /* StartModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModels.swift; sourceTree = "<group>"; };
 		E98E978925D1763100FD6B78 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		E98E978A25D1763100FD6B78 /* StartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInteractor.swift; sourceTree = "<group>"; };
 		E98E979425D176AA00FD6B78 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
+		E9C2D9FE25D6BC8A00FB503D /* EndScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndScreenRouter.swift; sourceTree = "<group>"; };
 		E9F1E3CB25D41378004E0684 /* EndScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenPresenter.swift; sourceTree = "<group>"; };
-		E9F1E3CC25D41378004E0684 /* EndScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenWorker.swift; sourceTree = "<group>"; };
-		E9F1E3CD25D41378004E0684 /* EndScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenRouter.swift; sourceTree = "<group>"; };
 		E9F1E3CE25D41378004E0684 /* EndScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenModels.swift; sourceTree = "<group>"; };
 		E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenViewController.swift; sourceTree = "<group>"; };
 		E9F1E3D025D41378004E0684 /* EndScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenInteractor.swift; sourceTree = "<group>"; };
@@ -168,12 +174,10 @@
 		E923939825C988D2006931B9 /* QuizZapTests */ = {
 			isa = PBXGroup;
 			children = (
-				E923939925C988D2006931B9 /* QuizZapTests.swift */,
+				E95FEE0F25D6A28400A1BDD3 /* StartScreen */,
+				E95FEE0E25D6A27100A1BDD3 /* Quiz */,
+				E95FEDFF25D6A25600A1BDD3 /* EndScreen */,
 				E923939B25C988D2006931B9 /* Info.plist */,
-				E92393DF25CACCA3006931B9 /* QuizViewControllerTests.swift */,
-				E92393E025CACCA3006931B9 /* QuizInteractorTests.swift */,
-				E92393E125CACCA3006931B9 /* QuizWorkerTests.swift */,
-				E92393E225CACCA3006931B9 /* QuizPresenterTests.swift */,
 			);
 			path = QuizZapTests;
 			sourceTree = "<group>";
@@ -205,6 +209,37 @@
 				E98BB0BE25CD7C73005D4F8E /* QuizCoreDataWorker.swift */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		E95FEDFF25D6A25600A1BDD3 /* EndScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E95FEE0025D6A26B00A1BDD3 /* EndScreenViewControllerTests.swift */,
+				E95FEE0125D6A26B00A1BDD3 /* EndScreenInteractorTests.swift */,
+				E95FEE0325D6A26B00A1BDD3 /* EndScreenPresenterTests.swift */,
+			);
+			path = EndScreen;
+			sourceTree = "<group>";
+		};
+		E95FEE0E25D6A27100A1BDD3 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				E923939925C988D2006931B9 /* QuizZapTests.swift */,
+				E92393DF25CACCA3006931B9 /* QuizViewControllerTests.swift */,
+				E92393E025CACCA3006931B9 /* QuizInteractorTests.swift */,
+				E92393E125CACCA3006931B9 /* QuizWorkerTests.swift */,
+				E92393E225CACCA3006931B9 /* QuizPresenterTests.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		E95FEE0F25D6A28400A1BDD3 /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E95FEE1025D6A29700A1BDD3 /* StartViewControllerTests.swift */,
+				E95FEE1125D6A29700A1BDD3 /* StartInteractorTests.swift */,
+			);
+			path = StartScreen;
 			sourceTree = "<group>";
 		};
 		E98E977625D173D600FD6B78 /* Extensions */ = {
@@ -244,7 +279,6 @@
 		E98E978425D1761A00FD6B78 /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E98E978525D1763100FD6B78 /* StartPresenter.swift */,
 				E98E978725D1763100FD6B78 /* StartRouter.swift */,
 				E98E978825D1763100FD6B78 /* StartModels.swift */,
 				E98E978925D1763100FD6B78 /* StartViewController.swift */,
@@ -258,9 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				E9F1E3CB25D41378004E0684 /* EndScreenPresenter.swift */,
-				E9F1E3CC25D41378004E0684 /* EndScreenWorker.swift */,
-				E9F1E3CD25D41378004E0684 /* EndScreenRouter.swift */,
 				E9F1E3CE25D41378004E0684 /* EndScreenModels.swift */,
+				E9C2D9FE25D6BC8A00FB503D /* EndScreenRouter.swift */,
 				E9F1E3D025D41378004E0684 /* EndScreenInteractor.swift */,
 				E9F1E3CF25D41378004E0684 /* EndScreenViewController.swift */,
 				E9F1E3DA25D41A48004E0684 /* EndScreenViewController.xib */,
@@ -400,9 +433,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9F1E3D225D41378004E0684 /* EndScreenWorker.swift in Sources */,
-				E98E978B25D1763100FD6B78 /* StartPresenter.swift in Sources */,
-				E9F1E3D325D41378004E0684 /* EndScreenRouter.swift in Sources */,
 				E92393D025C99131006931B9 /* QuizModels.swift in Sources */,
 				E9F1E3D125D41378004E0684 /* EndScreenPresenter.swift in Sources */,
 				E92393F925CAD8FC006931B9 /* QuestionModel.swift in Sources */,
@@ -416,6 +446,7 @@
 				E92393D125C99131006931B9 /* QuizViewController.swift in Sources */,
 				E98E978F25D1763100FD6B78 /* StartViewController.swift in Sources */,
 				E9F1E3D525D41378004E0684 /* EndScreenViewController.swift in Sources */,
+				E9C2D9FF25D6BC8A00FB503D /* EndScreenRouter.swift in Sources */,
 				E98E978D25D1763100FD6B78 /* StartRouter.swift in Sources */,
 				E92393D225C99131006931B9 /* QuizInteractor.swift in Sources */,
 				E98E979025D1763100FD6B78 /* StartInteractor.swift in Sources */,
@@ -432,7 +463,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95FEE0525D6A26B00A1BDD3 /* EndScreenInteractorTests.swift in Sources */,
+				E95FEE1425D6A29700A1BDD3 /* StartViewControllerTests.swift in Sources */,
+				E95FEE0725D6A26B00A1BDD3 /* EndScreenPresenterTests.swift in Sources */,
+				E95FEE0425D6A26B00A1BDD3 /* EndScreenViewControllerTests.swift in Sources */,
 				E92393E625CACCA3006931B9 /* QuizPresenterTests.swift in Sources */,
+				E95FEE1525D6A29700A1BDD3 /* StartInteractorTests.swift in Sources */,
 				E92393E425CACCA3006931B9 /* QuizInteractorTests.swift in Sources */,
 				E923939A25C988D2006931B9 /* QuizZapTests.swift in Sources */,
 				E92393E525CACCA3006931B9 /* QuizWorkerTests.swift in Sources */,
